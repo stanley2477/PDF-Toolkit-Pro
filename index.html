@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2233H42QE8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2233H42QE8');
+</script>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Split Bill Calculator</title>
+   <script src="https://pl30362348.effectivecpmnetwork.com/f1/27/79/f12779ad44ca50dd41ddbfcafb917700.js"></script>
+    <!-- GOOGLE SEARCH DESCRIPTION -->
+    <meta name="description" content="Use our free split bill calculator today! Split group expenses in any local currency and instantly calculate custom percentage cuts per person.">
+
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --bg-main: #f8fafc;
+            --card-bg: #ffffff;
+            --text-title: #0f172a;
+            --text-body: #334155;
+            --border: #e2e8f0;
+            --success-bg: #f0fdf4;
+            --success-border: #10b981;
+            --success-text: #166534;
+        }
+
+        * { box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin: 0; padding: 0; }
+        body { background-color: var(--bg-main); color: var(--text-body); padding: 20px 15px; display: flex; flex-direction: column; min-height: 100vh; }
+        .container { max-width: 520px; width: 100%; margin: 10px auto; background: var(--card-bg); padding: 30px 24px; border-radius: 24px; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05); }
+        header h1 { color: var(--text-title); font-size: 26px; font-weight: 800; margin-bottom: 6px; text-align: center; }
+        header p { color: #64748b; font-size: 14px; margin-bottom: 28px; text-align: center; }
+        
+        .section-divider { margin: 35px 0 25px 0; border-top: 2px solid #e2e8f0; padding-top: 25px; }
+        h2 { color: var(--text-title); font-size: 18px; margin-bottom: 15px; text-align: left; display: flex; align-items: center; gap: 6px; }
+        
+        .form-group { margin-bottom: 18px; text-align: left; }
+        label { display: block; font-weight: 600; margin-bottom: 8px; color: #475569; font-size: 13px; text-transform: uppercase; }
+        input, select { padding: 14px 16px; font-size: 16px; border-radius: 12px; border: 1px solid var(--border); width: 100%; box-sizing: border-box; background: #fff; color: var(--text-title); }
+        
+        button.action-btn { padding: 16px; font-size: 16px; border-radius: 12px; border: none; width: 100%; font-weight: 700; cursor: pointer; background-color: var(--primary); color: white; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2); transition: background 0.2s; }
+        button.action-btn:hover { background-color: var(--primary-hover); }
+        
+        .result-box { display: none; margin-top: 20px; background: var(--success-bg); border: 1px solid var(--success-border); padding: 20px; border-radius: 16px; text-align: left; }
+        .result-box h3 { color: var(--success-text); margin-bottom: 14px; font-size: 15px; text-transform: uppercase; text-align: center; border-bottom: 1px dashed rgba(16,185,129,0.3); padding-bottom: 6px; }
+        .result-item { display: flex; justify-content: space-between; margin-bottom: 10px; color: var(--success-text); font-size: 15px; }
+        .result-total { font-size: 22px; font-weight: 800; border-top: 1px dashed #10b981; padding-top: 12px; margin-top: 12px; color: #064e3b; }
+        
+        footer { margin-top: auto; padding: 24px 0 10px 0; font-size: 13px; color: #64748b; text-align: center; }
+        footer a { color: #2563eb; text-decoration: none; margin-left: 5px; font-weight: 600; }
+        footer a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Split Bill Calculator</h1>
+            <p>Smart, simple calculation tools designed for daily finance.</p>
+        </header>
+
+        <!-- GLOBAL CURRENCY SELECTOR -->
+        <div class="form-group">
+            <label>Select Your Local Currency</label>
+            <select id="currencySelect">
+                <option value="$">🇺🇸 USD - Dollar ($)</option>
+                <option value="₦">🇳🇬 NGN - Naira (₦)</option>
+                <option value="₵">🇬🇭 GHS - Cedi (₵)</option>
+                <option value="£">🇬🇧 GBP - Pound (£)</option>
+                <option value="€">🇪🇺 EUR - Euro (€)</option>
+                <option value="KSh">🇰🇪 KES - Shilling (KSh)</option>
+                <option value="R">🇿🇦 ZAR - Rand (R)</option>
+                <option value="₹">🇮🇳 INR - Rupee (₹)</option>
+                <option value="C$">🇨🇦 CAD - Canadian Dollar (C$)</option>
+                <option value="A$">🇦🇺 AUD - Australian Dollar (A$)</option>
+            </select>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- TOOL 1: BILL SPLITTER TOOL -->
+        <section>
+            <h2>👥 Bill Splitter Tool</h2>
+            <div class="form-group">
+                <label>Total Bill Amount</label>
+                <input type="number" id="totalBill" placeholder="Example: 150">
+            </div>
+            <div class="form-group">
+                <label>Number of People</label>
+                <input type="number" id="peopleCount" placeholder="Example: 4">
+            </div>
+            <button type="button" class="action-btn" onclick="calculateSplit()">Calculate Split Amount</button>
+            
+            <div id="split-results" class="result-box">
+                <h3>Calculated Split Breakdown</h3>
+                <div id="splitContent"></div>
+            </div>
+        </section>
+
+        <!-- VISUAL SECTION DIVIDER -->
+        <div class="section-divider"></div>
+
+        <!-- TOOL 2: DEFINE PERCENTAGE CUT PER PERSON -->
+        <section>
+            <h2>📊 Define Percentage Cut Per Person (%)</h2>
+            <div class="form-group">
+                <label>Total Bill Amount</label>
+                <input type="number" id="percentageTotalBill" placeholder="Example: 150">
+            </div>
+            <div class="form-group">
+                <label>Your Custom Cut Percentage (%)</label>
+                <input type="number" id="customPercentage" placeholder="Example: 25" min="1" max="100">
+            </div>
+            <button type="button" class="action-btn" onclick="calculatePercentageCut()">Calculate Percentage Cut</button>
+            
+            <div id="percentage-results" class="result-box">
+                <h3>Calculated Share Breakdown</h3>
+                <div id="percentageContent"></div>
+            </div>
+        </section>
+    </div>
+
+    <!-- AUTOMATIC YEAR FOOTER -->
+    <footer>
+        <p>© <span id="currentYear"></span> Split Bill Calculator | <a href="privacy.html">Privacy Policy</a></p>
+    </footer>
+
+    <script>
+        // AUTOMATIC YEAR SCRIPT
+        document.getElementById("currentYear").textContent = new Date().getFullYear();
+
+        // TOOL 1 FUNCTION
+        function calculateSplit() {
+            const bill = parseFloat(document.getElementById('totalBill').value);
+            const people = parseInt(document.getElementById('peopleCount').value);
+            const currency = document.getElementById('currencySelect').value;
+
+            if (isNaN(bill) || isNaN(people) || people <= 0) {
+                alert("Please enter valid amounts and total number of people.");
+                return;
+            }
+
+            const share = (bill / people).toFixed(2);
+            document.getElementById('splitContent').innerHTML = `
+                <div class="result-item"><span>Total Bill Pool:</span><span>${currency}${bill.toFixed(2)}</span></div>
+                <div class="result-item"><span>Total Splitters:</span><span>${people} People</span></div>
+                <div class="result-item result-total"><span>Each Person Pays:</span><span>${currency}${share}</span></div>`;
+            document.getElementById('split-results').style.display = "block";
+        }
+
+        // TOOL 2 FUNCTION
+        function calculatePercentageCut() {
+            const bill = parseFloat(document.getElementById('percentageTotalBill').value);
+            const percentage = parseFloat(document.getElementById('customPercentage').value);
+            const currency = document.getElementById('currencySelect').value;
+
+            if (isNaN(bill) || isNaN(percentage) || percentage <= 0 || percentage > 100) {
+                alert("Please enter a valid bill amount and a percentage between 1 and 100.");
+                return;
+            }
+
+            const personPays = ((bill * percentage) / 100).toFixed(2);
+            const remainingBalance = (bill - personPays).toFixed(2);
+
+            document.getElementById('percentageContent').innerHTML = `
+                <div class="result-item"><span>Total Bill Pool:</span><span>${currency}${bill.toFixed(2)}</span></div>
+                <div class="result-item"><span>Your Custom Cut:</span><span>${percentage}%</span></div>
+                <div class="result-item"><span>Remaining Balance:</span><span>${currency}${remainingBalance}</span></div>
+                <div class="result-item result-total"><span>You Will Pay:</span><span>${currency}${personPays}</span></div>`;
+            document.getElementById('percentage-results').style.display = "block";
+        }
+    </script>
+</body>
+</html>
